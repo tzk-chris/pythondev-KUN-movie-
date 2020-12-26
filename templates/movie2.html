@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <h1 class="m_2">Now in the Movie</h1>
+        <div class="search">
+            <form>
+                <input type="text" value="Search..." onfocus="this.value='';"
+                       onblur="if (this.value == '') {this.value ='';}">
+                <input type="submit" value="">
+            </form>
+        </div>
+        <div class="clearfix"></div>
+        <div class="container movie_top">
+            {% for item in movies %}
+
+                <div class="row movie_box " style="margin: 0 auto;">
+                    <!-- Movie variant with time -->
+                    <div class="movie movie-test movie-test-dark movie-test-left" style="width: 100%;height: auto">
+
+                        <div class="movie__images ">
+                            <a href="single?tag={{ item.name }}&id={{ item.movieid }}" class="movie-beta__link">
+{#                                <img alt="" src="{{ url_for('static',filename='images/1.jpg') }}" class="img-responsive" alt=""/>#}
+                                <img alt="" src="{{ item.poster }}" class="img-responsive" alt=""/>
+                            </a>
+                        </div>
+                        <div class="movie__info ">
+                            <a href="single?tag={{ item.name }}&id={{ item.movieid }}" class="movie__title">{{ item.name }}</a>
+                            <p class="movie__time">{{ item.info }}</p>
+                            <br>
+                            <p class="movie__option">{{ item.person }}</p>
+                            <br>
+                            <p>{{ item.introduce }}</p>
+                            {#                                    <br>#}
+                            <p>评分：{{ item.score }}+</p>
+                            <ul class="list_6">
+                                <li><i class="icon2"> </i>
+                                    <p>{{ item.comment }}</p></li>
+                                {#						    			<li><i class="icon3"> </i><p>546</p></li>#}
+                                {#						    			<li>Rating : &nbsp;&nbsp;<p><img src="{{ url_for('static',filename='images/rating1.png') }}" alt=""></p></li>#}
+                                <div class="clearfix"></div>
+                            </ul>
+                        </div>
+
+
+                    </div>
+
+                    <!-- Movie variant with time -->
+                    <!-- Movie variant with time -->
+
+                    <div class="clearfix"></div>
+                    <!-- Movie variant with time -->
+                </div>
+            {% endfor %}
+{#                分页#}
+            <div class="pagination">
+{#                判断是否存在前一页#}
+                {% if paginate.has_prev %}
+                   <li> <a href="?page={{ paginate.prev_num }}">上一页</a></li>
+                {% endif %}
+
+
+            {% for i in paginate.iter_pages() %}
+
+                {% if i == paginate.page %}
+                        <li class="active"><a  href="?page={{ i }}">{{ i }}</a></li>
+                  {% else %}
+                      <li ><a href="?page={{ i }}">{{ i }}</a></li>
+                {% endif %}
+
+
+                {% endfor %}
+
+
+            {#                判断是否存在下一页#}
+                {% if paginate.has_next %}
+                   <li><a href="?page={{ paginate.next_num }}">下一页</a></li>
+                {% endif %}
+
+            </div>
+
+
+        </div>
+
+
+        <br>
+        <br>
+        <br>
+        <h3 class="recent">Recently Viewed</h3>
+        <ul id="flexiselDemo3">
+            <li><img src="{{ url_for('static',filename='images/1.jpg') }}" class="img-responsive"/>
+                <div class="grid-flex"><a href="#">Syenergy 2mm</a>
+                    <p>22.10.2014 | 14:40</p></div>
+            </li>
+            <li><img src="{{ url_for('static',filename='images/2.jpg') }}" class="img-responsive"/>
+                <div class="grid-flex"><a href="#">Surf Yoke</a>
+                    <p>22.01.2015 | 14:40</p></div>
+            </li>
+            <li><img src="{{ url_for('static',filename='images/3.jpg') }}" class="img-responsive"/>
+                <div class="grid-flex"><a href="#">Salty Daiz</a>
+                    <p>22.10.2013 | 14:40</p></div>
+            </li>
+            <li><img src="{{ url_for('static',filename='images/4.jpg') }}" class="img-responsive"/>
+                <div class="grid-flex"><a href="#">Cheeky Zane</a>
+                    <p>22.10.2014 | 14:40</p></div>
+            </li>
+            <li><img src="{{ url_for('static',filename='images/5.jpg') }}" class="img-responsive"/>
+                <div class="grid-flex"><a href="#">Synergy</a>
+                    <p>22.10.2013 | 14:40</p></div>
+            </li>
+        </ul>
+    </div>
+{% endblock %}

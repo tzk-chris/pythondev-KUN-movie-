@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}{{ title }}{% endblock %}
+
+
+
+{% block content %}
+    <div class="content">
+        <div class="register">
+            <div class="col-md-6 login-left">
+                <h3>新用户</h3>
+                <p>请点击这里.</p>
+                <a class="acount-btn" href="register">进入创建</a>
+                <p>未登录不能参与影评</p>
+            </div>
+            <div class="col-md-6 login-right">
+                <h3>已注册用户</h3>
+                <p>如果您在我们这里有账户，请登录.</p>
+                <form method="post">
+                    <div>
+                        <label>邮箱：*</label><span></span>
+{#                        <input type="text" placeholder="请输入邮箱" id="log_email" class="form-control">#}
+                        {{ form.email }}
+                    </div>
+                    <div>
+                        <label>密码：*</label><span></span>
+{#                        <input type="password" placeholder="请输入密码" id="log_password" class="form-control">#}
+                        {{ form.password }}
+                    </div>
+                    <a class="forgot" href="#">忘记密码?</a>
+                    {#				  <input type="submit" value="登录">#}
+                    <div class="submit">
+                        <button id="log_Btn" onclick="log()">登录</button>
+                    </div>
+                </form>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% block title %}{{ title }}{% endblock %}
+
+
+{% block content %}
+    <div class="header_top"><h1>{{ title }}</h1></div>
+    <div class="content">
+        <div class="register">
+            <form class="form-control" method="post" name="register">
+                <div class="register-top-grid col-md-4">
+                    <h3>填写个人注册信息</h3>
+                    <ul>
+                        <li>
+                            <label>用户名：*</label>
+                            {{ form.username }}
+                            <span class="regTip" id="userinfo"></span>
+                        </li>
+                        <li>
+                            <label>邮箱地址：*</label>
+                            {{ form.email }}
+                            <span class="regTip" id="useremail"></span>
+                        </li>
+                        <li>
+                            <label>密码：*</label><br>
+                            {{ form.password }}
+                            <span class="regTip" id="passwordinfo"></span>
+                        </li>
+                        <li>
+                            <label>邮箱验证码：*</label><br>
+                            {{ form.checkcode }}
+                            <button class="checkcode" id="themail" type="button" onclick="changeValue()">获取验证码</button>
+                        </li>
+                        <li>
+                            <div>xx{{ form.submit }}xx</div>
+                        </li>
+                    </ul>
+                </div>
+                <h1 class="news-letter" href="#">
+                    hello!
+                </h1>
+            </form>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+{% endblock content %}
+
+{% block script %}
+    {{ super() }}
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript">
+        $("#username").focus(function () {
+            $("#userinfo").html("设置后不可更改，长度为3-10，不要有中文");
+        });
+        $("#username").blur(function () {
+            ret = /^[\w\d_]{3,10}$/i;
+            user_span = $("#userinfo");
+            if (this.value.length == 0) {
+                user_span.html("");
+            } else if (this.value.length < 3 || this.value.length > 10) {
+                user_span.html("用户名长度不符合规范");
+            } else if (ret.test(this.value)) {
+                url = "http:127.0.0.1:5000/check_form?username=";
+                $.get(url + this.value, function (data) {
+                    console.log(data);
+                    if (data == "可以注册200") {
+                        user_span.html("用户名合法");
+                    } else {
+                        user_span.html("用户名已经被注册");
+                    }
+                })
+            } else {
+                user_span.html("用户名命名不合法");
+            }
+        });
+        $("#email").focus(function () {
+            $("#useremail").html("请正确填写邮箱格式：...@....com");
+        });
+        $("#password").focus(function () {
+            $("#passwordinfo").html("账号为6~18位的字母及数字组合");
+        });
+        $("#password").blur(function () {
+            ret1 = /^[\w\d_]{6,18}$/i;
+            user_span = $("#passwordinfo");
+            if (this.value.length == 0) {
+                user_span.html("");
+            } else if (this.value.length < 6 || this.value.length > 18) {
+                user_span.html("密码长度不符合规范");
+            }
+        });
+        $(".checkcode").click(function () {
+            let uemail = document.getElementById('email').value;
+            $.get('{{ url_for('view01.sendmail') }}', {uemail: uemail});
+        });
+{#        $("#submit").click(function () {#}
+{#            let ucode = document.getElementById('checkcode').value;#}
+{#            $.get('{{ url_for('view01.verify') }}', {ucode: ucode});#}
+{#        });#}
+        function changeValue() {
+            var obj = document.getElementById('themail');
+            obj.innerHTML = "请输入验证码";
+        }
+    </script>
+{% endblock %}

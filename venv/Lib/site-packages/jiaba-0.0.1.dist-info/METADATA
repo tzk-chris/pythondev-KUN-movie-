@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: jiaba
+Version: 0.0.1
+Summary: UNKNOWN
+Home-page: UNKNOWN
+Author: labusi
+Author-email: UNKNOWN
+License: UNKNOWN
+Platform: UNKNOWN
+
+# jiaba分词
+
+使用Bidirectional LSTM和CRF建立分词模型.
+

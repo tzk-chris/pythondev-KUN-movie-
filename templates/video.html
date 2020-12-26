@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <h1 class="m_2">Now in the Movie</h1>
+        <div class="search">
+            {#搜索框#}
+            <form action="{{ url_for('movie.search') }}" method="get" target="_parent">
+                {#                <input type="text" name="search" value="Search..." onfocus="this.value='';"#}
+                {#                       onblur="if (this.value == '') {this.value ='';}">#}
+                {#                <input type="button" value="search">#}
+                <input type="text" name="search" placeholder="输入查询的电影...">
+                <input type="submit" value="">
+            </form>
+        </div>
+        <div class="clearfix"></div>
+        <div class="movie_top">
+
+            <div class="col-md-3 col-md-4 movie_box">
+                <iframe src="//player.bilibili.com/player.html?aid=5414334&bvid=BV1us41117yA&cid=8801210&page=1"
+                        scrolling="no" border="0" frameborder="0" framespacing="0" height="300" width="100%"
+                        allowfullscreen="allowfullscreen"></iframe>
+            </div>
+            <div class="col-md-3 col-md-4 movie_box">
+                <iframe src="//player.bilibili.com/player.html?aid=53302549&bvid=BV1R441157bQ&cid=93262630&page=1"
+                        scrolling="no" border="0" frameborder="0" framespacing="0" height="300" width="100%"
+                        allowfullscreen="allowfullscreen"></iframe>
+            </div>
+            <div class="col-md-3 col-md-4 movie_box">
+                <iframe src="//player.bilibili.com/player.html?aid=25154916&bvid=BV1zW411c7hA&cid=42617956&page=1"
+                        height="300" width="100%" scrolling="no" border="0" frameborder="no" framespacing="0"
+                        allowfullscreen="true"></iframe>
+            </div>
+            <div class="col-md-3 col-md-4 movie_box">
+
+                <iframe src="//player.bilibili.com/player.html?aid=38334623&bvid=BV1pt411e7gj&cid=67380030&page=1"
+                        height="300" width="100%" scrolling="no" border="0" frameborder="no" framespacing="0"
+                        allowfullscreen="true"></iframe>
+            </div>
+            <div class="col-md-3 col-md-4 movie_box">
+                <iframe src="//player.bilibili.com/player.html?aid=5185692&bvid=BV1Zs411v7wi&cid=8427859&page=1"
+                        height="300" width="100%" scrolling="no" border="0" frameborder="no" framespacing="0"
+                        allowfullscreen="true"></iframe>
+            </div>
+            <div class="col-md-3 col-md-4 movie_box">
+                <iframe src="//player.bilibili.com/player.html?aid=10485565&bvid=BV1Rx411m7zp&cid=17315256&page=1"
+                        height="300" width="100%" scrolling="no" border="0" frameborder="no" framespacing="0"
+                        allowfullscreen="true"></iframe>
+            </div>
+            <div class="col-md-3 col-md-4 movie_box">
+                <iframe src="//player.bilibili.com/player.html?aid=5530290&bvid=BV1ds411k74N&cid=8983631&page=1"
+                        height="300" width="100%" scrolling="no" border="0" frameborder="no" framespacing="0"
+                        allowfullscreen="true"></iframe>
+            </div>
+            <div class="col-md-3 col-md-4 movie_box">
+                <iframe src="//player.bilibili.com/player.html?aid=285949502&bvid=BV1cf4y1m78L&cid=200485476&page=1"
+                        height="300" width="100%" scrolling="no" border="0" frameborder="no" framespacing="0"
+                        allowfullscreen="true"></iframe>
+            </div>
+            <div class="col-md-3 col-md-4 movie_box">
+                <iframe src="//player.bilibili.com/player.html?aid=38573661&bvid=BV1Pt411Y7YK&cid=67806098&page=1"
+                        height="300" width="100%" scrolling="no" border="0" frameborder="no" framespacing="0"
+                        allowfullscreen="true"></iframe>
+            </div>
+            <div class="col-md-3 col-md-4 movie_box">
+                <iframe src="//player.bilibili.com/player.html?aid=5714521&bvid=BV1ws411y7fs&cid=9279628&page=1"
+                        height="300" width="100%" scrolling="no" border="0" frameborder="no" framespacing="0"
+                        allowfullscreen="true"></iframe>
+            </div>
+            <div class="col-md-3 col-md-4 movie_box">
+                <iframe src="//player.bilibili.com/player.html?aid=5199690&bvid=BV1Ds411v79H&cid=8451240&page=1"
+                        height="300" width="100%" scrolling="no" border="0" frameborder="no" framespacing="0"
+                        allowfullscreen="true"></iframe>
+            </div>
+            <div class="col-md-3 col-md-4 movie_box">
+                <iframe src="//player.bilibili.com/player.html?aid=5222828&bvid=BV1us411i7Nx&cid=8487952&page=1"
+                        height="300" width="100%" scrolling="no" border="0" frameborder="no" framespacing="0"
+                        allowfullscreen="true"></iframe>
+            </div>
+            <div class="col-md-3 col-md-4 movie_box">
+                <iframe src="//player.bilibili.com/player.html?aid=5271431&bvid=BV1Ls411y7aw&cid=8567355&page=1"
+                        height="300" width="100%" scrolling="no" border="0" frameborder="no" framespacing="0"
+                        allowfullscreen="true"></iframe>
+            </div>
+            <div class="col-md-3 col-md-4 movie_box">
+                <iframe src="//player.bilibili.com/player.html?aid=9497819&bvid=BV1Rx411D7td&cid=15700643&page=1"
+                        height="300" width="100%" scrolling="no" border="0" frameborder="no" framespacing="0"
+                        allowfullscreen="true"></iframe>
+            </div>
+            <div class="col-md-3 col-md-4 movie_box">
+                <iframe src="//player.bilibili.com/player.html?aid=55319022&bvid=BV1R4411A7TJ&cid=97103859&page=1"
+                        height="300" width="100%" scrolling="no" border="0" frameborder="no" framespacing="0"
+                        allowfullscreen="true"></iframe>
+            </div>
+            <div class="col-md-3 col-md-4 movie_box">
+                <iframe src="//player.bilibili.com/player.html?aid=73168155&bvid=BV1EE411y7JE&cid=125386282&page=1"
+                        height="300" width="100%" scrolling="no" border="0" frameborder="no" framespacing="0"
+                        allowfullscreen="true"></iframe>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+
+    </div>
+{% endblock %}
+

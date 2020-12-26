@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}{{ title }}{% endblock %}
+
+
+
+{% block content %}
+    <div class="content">
+                <iframe src="https://search.bilibili.com/all?keyword={{ scan_movie }}"
+                                        allowfullscreen="allowfullscreen" width="100%" height="500" scrolling="no"
+                                        frameborder="0"
+                                        sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts">
+                </iframe>
+
+
+        <iframe id="b" class="b video_pc"
+                src="https://www.bilibili.com/html/html5player.html?cid=8801210&aid=5414334&pre_ad=0" frameborder="0"
+                allowfullscreen="true" width="100%" height="300">
+        </iframe>
+        <div class="clearfix"></div>
+
+    </div>
+
+{% endblock %}
+

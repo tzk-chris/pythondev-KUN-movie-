@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+{% block title %}{{ title }}{% endblock %}
+
+
+
+{% block content %}
+    <div class="content">
+        <div>
+            <h1 class="m_2">电影类型</h1>
+        </div>
+        <br><br>
+
+        <div class="col-md-12">
+            <div class="m_type col-md-3">
+                <ul>
+                    <li>
+                        <a href="type?word=悬疑" target="_blank">
+                            <img src="{{ url_for('static',filename='images/xuanyi.jpg') }}"
+                                 style="height: 100px;width: 100px;"/>
+                        </a>
+                        <p><strong><a href="type?word=悬疑" target="_blank"> 悬疑</a></strong></p><br>
+                    </li>
+
+                    <li>
+                        <a href="type?word=剧情" target="_blank">
+                            <img src="{{ url_for('static',filename='images/juqing.jpg') }}"
+                                 style="height: 100px;width: 100px;"/>
+                        </a>
+                        <p><strong><a href="type?word=剧情" target="_blank"> 剧情</a></strong></p><br>
+                    </li>
+
+                    <li>
+                        <a href="type?word=爱情" target="_blank">
+                            <img src="{{ url_for('static',filename='images/aiqing.jpg') }}"
+                                 style="height: 100px;width: 100px;"/>
+                        </a>
+                        <p><strong><a href="type?word=爱情" target="_blank"> 爱情</a></strong></p><br>
+                    </li>
+
+                    <li>
+                        <a href="type?word=动作" target="_blank">
+                            <img src="{{ url_for('static',filename='images/wuda.jpg') }}"
+                                 style="height: 100px;width: 100px;"/>
+                        </a>
+                        <p><strong><a href="type?word=动作" target="_blank"> 动作</a></strong></p></li>
+                </ul>
+            </div>
+            <div class="m_type  col-md-3">
+                <ul>
+                    <li>
+                        <a href="type?word=动画" target="_blank">
+                            <img src="{{ url_for('static',filename='images/donghua.jpg') }}"
+                                 style="height: 100px;width: 100px;"/>
+                        </a>
+                        <p><strong><a href="type?word=动画" target="_blank"> 动画</a></strong></p><br>
+                    </li>
+
+                    <li>
+                        <a href="type?word=战争" target="_blank">
+                            <img src="{{ url_for('static',filename='images/zhanzheng.jpg') }}"
+                                 style="height: 100px;width: 100px;"/>
+                        </a>
+                        <p><strong><a href="type?word=战争" target="_blank"> 战争</a></strong></p><br></li>
+
+                    <li>
+                        <a href="type?word=科幻" target="_blank">
+                            <img src="{{ url_for('static',filename='images/kehuan.jpg') }}"
+                                 style="height: 100px;width: 100px;"/>
+                        </a>
+                        <p><strong><a href="type?word=科幻" target="_blank"> 科幻</a></strong></p><br></li>
+
+                    <li>
+                        <a href="type?word=喜剧" target="_blank">
+                            <img src="{{ url_for('static',filename='images/xiju.jpg') }}"
+                                 style="height: 100px;width: 100px;"/>
+                        </a>
+                        <p><strong><a href="type?word=喜剧" target="_blank"> 喜剧</a></strong></p></li>
+                </ul>
+            </div>
+            <div class="m_type  col-md-3">
+                <ul>
+
+                    <li>
+                        <a href="type?word=日本" target="_blank">
+                            <img src="{{ url_for('static',filename='images/riben.jpg') }}"
+                                 style="height: 100px;width: 100px;"/>
+                        </a>
+                        <p><strong><a href="type?word=日本" target="_blank"> 日本</a></strong></p><br></li>
+
+                    <li>
+                        <a href="type?word=美国" target="_blank">
+                            <img src="{{ url_for('static',filename='images/meiguo.jpg') }}"
+                                 style="height: 100px;width: 100px;"/>
+                        </a>
+                        <p><strong><a href="type?word=美国" target="_blank"> 美国</a></strong></p><br></li>
+
+                    <li>
+                        <a href="type?word=中国大陆" target="_blank">
+                            <img src="{{ url_for('static',filename='images/dalu.jpg') }}"
+                                 style="height: 100px;width: 100px;"/>
+                        </a>
+                        <p><strong><a href="type?word=中国大陆" target="_blank"> 中国大陆</a></strong></p><br></li>
+
+                    <li>
+                        <a href="type?word=中国台湾" target="_blank">
+                            <img src="{{ url_for('static',filename='images/taiwan.jpg') }}"
+                                 style="height: 100px;width: 100px;"/>
+                        </a>
+                        <p><strong><a href="type?word=中国台湾" target="_blank"> 中国台湾</a></strong></p></li>
+
+                </ul>
+            </div>
+            <div class="col-md-3">
+                {% for item in movies %}
+                    <div class="movie_img">
+                        <div class="grid_2">
+                            <img src="{{ item.poster }}" class="img-responsive" alt=""
+                                 style="height: 200px;width: 150px;"/>
+                            {#                        <div class="caption1">#}
+                            {#                            <ul class="list_5 list_7">#}
+                            {#                                <li><i class="icon5"> </i>#}
+                            {#                                    <p>3,548</p></li>#}
+                            {#                            </ul>#}
+                            {#                            <i class="icon4 icon6 icon7"> </i>#}
+                            {#                            <p class="m_3">Guardians of the Galaxy</p>#}
+                            {#                        </div>#}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+
+        <div class="clearfix"></div>
+    </div>
+{% endblock %}
